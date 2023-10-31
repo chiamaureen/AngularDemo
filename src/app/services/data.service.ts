@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PostData } from '../interface/post-data';
-// interface PostData {
+import { TodoData } from '../interface/todo-data';
+// interface TodoData {
 //   userId: number,
 //   id: number,
 //   title: string,
@@ -16,6 +16,6 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getApiData () {
-    return this.http.get<PostData[]>('https://jsonplaceholder.typicode.com/posts');
+    return this.http.get<TodoData[]>('https://jsonplaceholder.typicode.com/todos');
   }
 }

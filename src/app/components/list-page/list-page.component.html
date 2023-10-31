@@ -1,11 +1,17 @@
 <p>list page</p>
-<button pButton type="button" label="Click" ></button>
-<p-button label="Click"></p-button>
+<!-- <button pButton type="button" label="Click" ></button>
+<p-button label="Click"></p-button> -->
 
-<p-selectButton 
+<!-- <p-selectButton 
     [options]="[{name:'A'},{name:'B'},{name:'C'}]" 
     optionLabel="name"
+    [multiple]="true"
 >
-</p-selectButton>
-<div>{{ postList | json }}</div>
-<app-card></app-card>
+</p-selectButton> -->
+
+<div *ngFor="let i of todoList">
+    <app-card
+        [cardData]="i"
+    ></app-card>
+</div>
+<!-- <div>{{ todoList | json }}</div> -->

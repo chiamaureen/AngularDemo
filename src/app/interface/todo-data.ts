@@ -1,4 +1,4 @@
-export interface PostData {
+export interface TodoData {
     userId: number,
     id: number,
     title: string,
