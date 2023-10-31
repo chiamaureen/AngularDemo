@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SelectButtonModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
