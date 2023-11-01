@@ -1,8 +1,9 @@
-<p>list page</p>
+<!-- <p>list page</p> -->
 <div class="card-area">
     <app-card
         *ngFor="let i of todoList"
         [cardData]="i"
+        (newItemEvent)="onCardDataChanged($event)"
     ></app-card>
 </div>
 
