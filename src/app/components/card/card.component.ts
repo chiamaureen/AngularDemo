@@ -7,19 +7,19 @@ import { TodoData } from 'src/app/interface/todo-data';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
-  @Input() cardData: {
-    userId: number,
-    id: number,
-    title: string,
-    body: string
-  } = {
-      userId: 0,
-      id: 0,
-      title: '',
-      body: ''
+  
+  // 可以設定預設值
+  @Input() cardData: TodoData = {
+    userId: 0,
+    id: 0,
+    title: '',
+    completed: false
   };
 
+  // 外部一定要傳遞一個值不然會出錯、不能設定預設值
+  // @Input()
+  // cardData!: TodoData;
+  
   constructor() { }
 
   ngOnInit(): void {

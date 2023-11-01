@@ -1,14 +1,21 @@
 <p-card 
+    class="card"
     header="{{cardData.title}}" 
-    subheader="{{cardData.title}}" 
-    [style]="{width: '360px'}" 
+    [style]="{width: '360px',margin: '1rem'}" 
     styleClass="p-card-shadow"
 >
-    <p>{{ cardData | json }}</p>
-    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-    <ng-template pTemplate="footer">
-        <p-button label="Save" icon="pi pi-check"></p-button>
-        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
-    </ng-template> -->
+    <p> status: {{ cardData.completed ? 'done' : 'doing' }} </p>
+    <div>
+        <p-button 
+            label="DONE" 
+            icon="pi pi-check"
+            styleClass="p-button-sm p-button-success"
+        ></p-button>
+        <p-button 
+            label="DELETE" 
+            icon="pi pi-times" 
+            styleClass="p-button-secondary p-button-sm" 
+            [style]="{'margin-left': '.5em'}"
+        ></p-button>
+    </div>
 </p-card>

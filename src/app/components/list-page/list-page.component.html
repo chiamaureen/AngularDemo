@@ -1,17 +1,8 @@
 <p>list page</p>
-<!-- <button pButton type="button" label="Click" ></button>
-<p-button label="Click"></p-button> -->
-
-<!-- <p-selectButton 
-    [options]="[{name:'A'},{name:'B'},{name:'C'}]" 
-    optionLabel="name"
-    [multiple]="true"
->
-</p-selectButton> -->
-
-<div *ngFor="let i of todoList">
+<div class="card-area">
     <app-card
+        *ngFor="let i of todoList"
         [cardData]="i"
     ></app-card>
 </div>
-<!-- <div>{{ todoList | json }}</div> -->
+
