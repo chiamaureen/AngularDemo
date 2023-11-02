@@ -19,13 +19,13 @@ export class ListPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getApiData().subscribe(data => this.todoList = data.slice(0,50));
+    this.dataService.getApiData().subscribe(data => this.todoList = data.slice(0, 15));
   }
 
   onCardDataChanged(updatedData: any) {
     console.log('Card data changed:', updatedData);
     const index = this.todoList.findIndex(x => x.id === updatedData.id);
-    this.todoList[index].title = updatedData.title;
+    if (index != -1) this.todoList[index].title = updatedData.title;
   }
 
 }

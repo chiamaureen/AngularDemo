@@ -6,8 +6,9 @@ import { ListPageComponent } from './components/list-page/list-page.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
-
+// primeNG
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -25,6 +26,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
 
     // primeNG
     SelectButtonModule,

@@ -38,15 +38,31 @@
 </p-card>
 
 <p-dialog header="Edit Todo" [(visible)]="display" [style]="{width: '50vw'}">
-    <textarea 
-        pInputTextarea 
-        [(ngModel)]="editItem" 
-        [style]="{width: '100%'}"
-    ></textarea>
-    <p-button 
-        label="EDIT" 
-        icon="pi pi-check"
-        styleClass="p-button-sm p-button-success"
-        (click)="editData(editItem)"
-    ></p-button>
+    <form [formGroup]="todoForm" (ngSubmit)="editData()">
+        <!-- [(ngModel)]="editItem"  -->
+        <textarea 
+            pInputTextarea 
+            formControlName="title"
+            [style]="{width: '100%', margin: '1rem 0'}"
+        ></textarea>
+        <div
+            *ngIf="!todoForm.get('title')?.valid"
+            style="color: red;margin-bottom:1rem;"
+        >
+            require
+        </div>
+        <!-- <textarea 
+            pInputTextarea 
+            [(ngModel)]="item.title" 
+            [style]="{width: '100%'}"
+        ></textarea> -->
+        <p-button 
+            label="EDIT" 
+            [disabled]="!todoForm.get('title')?.valid"
+            icon="pi pi-check"
+            styleClass="p-button-sm p-button-success"
+            type="submit"
+        ></p-button>
+        <!-- (click)="editData(editItem)" -->
+    </form>
 </p-dialog>

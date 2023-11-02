@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { TodoData } from 'src/app/interface/todo-data';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -21,10 +21,21 @@ export class CardComponent implements OnInit {
   // cardData!: TodoData;
   
   editItem: string = '';
+  item !: TodoData;
 
   @Output() newItemEvent = new EventEmitter<object>();
 
-  constructor() { }
+  
+  // 表單檢查
+  todoForm: FormGroup;
+
+
+  constructor(private fb:FormBuilder) 
+  {
+    this.todoForm = this.fb.group({
+      title: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     // console.log('cardData',this.cardData);
@@ -33,17 +44,29 @@ export class CardComponent implements OnInit {
   display: boolean = false;
 
   showEditDialog() {
+    // ngModel
     this.editItem = JSON.parse(JSON.stringify(this.cardData.title));
+    this.item = JSON.parse(JSON.stringify(this.cardData));
+
+    // reactive form
+    this.todoForm.get('title')?.setValue(this.editItem);
+
     this.display = true;
   }
 
-  editData (value: string) {
-    const newObj = {
-      id: this.cardData.id,
-      title: value
-    } 
-    this.newItemEvent.emit(newObj);
-    this.display = false;
+  editData () {
+    
+    console.log('this.todoForm.value',this.todoForm.value);
+    if(this.todoForm.valid) {
+      const newObj = {
+        id: this.cardData.id,
+        title: this.todoForm.value.title // reactive form
+      } 
+      this.newItemEvent.emit(newObj);
+      this.display = false;
+    }
   }
+
+
 
 }
