@@ -22,10 +22,16 @@ export class ListPageComponent implements OnInit {
     this.dataService.getApiData().subscribe(data => this.todoList = data.slice(0, 15));
   }
 
-  onCardDataChanged(updatedData: any) {
+  onCardDataChanged(updatedData: TodoData) {
     console.log('Card data changed:', updatedData);
     const index = this.todoList.findIndex(x => x.id === updatedData.id);
-    if (index != -1) this.todoList[index].title = updatedData.title;
+    if (index !== -1) this.todoList[index].title = updatedData.title;
+  }
+
+  completeTask(task: TodoData) {
+    console.log('completeTask:', task);
+    const index = this.todoList.findIndex(x => x.id === task.id);
+    if (index !== -1) this.todoList[index].completed = true;
   }
 
 }

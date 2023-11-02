@@ -8,23 +8,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CardComponent implements OnInit {
   
-  // 可以設定預設值
   @Input() cardData: TodoData = {
     userId: 0,
     id: 0,
     title: '',
     completed: false
   };
-
-  // 外部一定要傳遞一個值不然會出錯、不能設定預設值
-  // @Input()
-  // cardData!: TodoData;
   
   editItem: string = '';
   item !: TodoData;
 
   @Output() newItemEvent = new EventEmitter<object>();
-
+  @Output() completeItemEvent = new EventEmitter<object>();
   
   // 表單檢查
   todoForm: FormGroup;
@@ -67,6 +62,9 @@ export class CardComponent implements OnInit {
     }
   }
 
-
+  compelteTask (value: object) {
+    console.log(value);
+    this.completeItemEvent.emit(value);
+  }
 
 }

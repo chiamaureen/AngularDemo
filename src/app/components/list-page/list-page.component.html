@@ -3,7 +3,8 @@
     <app-card
         *ngFor="let i of todoList"
         [cardData]="i"
-        (newItemEvent)="onCardDataChanged($event)"
+        (newItemEvent)="onCardDataChanged(i)"
+        (completeItemEvent)="completeTask(i)"
     ></app-card>
 </div>
 
